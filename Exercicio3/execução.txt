@@ -1,0 +1,11 @@
+docker run -dti --name ubuntu ubuntu
+
+docker exec -ti ubuntu bash
+
+apt update -y
+
+apt upgrade -y
+
+apt install curl -y
+
+curl google.com -I

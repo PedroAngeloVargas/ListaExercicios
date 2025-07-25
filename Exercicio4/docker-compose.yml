@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: SENHA
+      MYSQL_DATABASE: banco 
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - banco_network
+
+volumes:
+  mysql_data:
+
+networks:
+  banco_network:
+    driver: bridge

@@ -1,0 +1,1 @@
+docker run -ti --name teste_env -e MEU_NOME=Pedro alpine sh -c 'echo $MEU_NOME'

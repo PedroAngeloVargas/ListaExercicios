@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  html:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./local:/usr/share/nginx/html
+    restart: always
