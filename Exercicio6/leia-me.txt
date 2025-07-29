@@ -3,3 +3,5 @@ modificada go:v2 apresenta 27 mb, em que houve uma pequena redução de tamanho 
 
 Isso acontece porque na modificação se usa alpine, que é menor que distroless, também não roda testes e 
 nem tem múltiplos estágios, além de que faz um build direto e copia apenas o necessário.
+
+Modificado do repositório original: github.com/docker/docker-gs-ping
