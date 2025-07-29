@@ -1,0 +1,5 @@
+Visto no print, a imagem go:v1 apresenta o dockerfile multistage original com 28.3 mb, enquanto a versão
+modificada go:v2 apresenta 27 mb, em que houve uma pequena redução de tamanho de 1.3 mb.
+
+Isso acontece porque na modificação se usa alpine, que é menor que distroless, também não roda testes e 
+nem tem múltiplos estágios, além de que faz um build direto e copia apenas o necessário.

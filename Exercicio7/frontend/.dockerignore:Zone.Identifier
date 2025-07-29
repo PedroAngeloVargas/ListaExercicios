@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/docker/awesome-compose/tree/master
+HostUrl=https://codeload.github.com/docker/awesome-compose/zip/refs/heads/master

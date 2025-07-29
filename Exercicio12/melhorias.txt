@@ -1,0 +1,92 @@
+Mudança no requirements.txt
+
+//Antes 
+flask==1.1.1
+
+//Depois
+flask
+gunicorn
+
+Melhor prática de segurança, pois utiliza a versão mais recente da biblioteca flask.
+Adição do servidor flask gunicorn.
+
+---------------------------------------------------------------------------
+
+Mudança em app.py
+
+//Antes
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+//Depois
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+
+def hello_world(): 
+    return "<p>Hello, World!</p>"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+Adição de nova função para permitir a execução consistente da aplicação.
+
+---------------------------------------------------------------------------
+
+Melhoria no Dockerfile
+
+//Antes
+FROM python:3.9
+
+WORKDIR /app COPY requirements.txt . RUN pip install -r
+
+requirements.txt
+
+COPY . .
+
+CMD ["python", "app.py"]
+
+//Depois
+
+FROM python:3.14-rc-alpine # 1 
+
+WORKDIR /app 
+
+COPY ./flask/requirements.txt . 
+
+RUN pip install -r requirements.txt
+
+COPY ./flask .
+
+RUN apk update && apk upgrade # 2
+
+RUN addgroup -S prod && adduser -S -G prod pedro # 3 
+
+RUN chown -R pedro:prod /app 
+
+USER pedro
+
+EXPOSE 5000 # 4
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"] # 5
+
+Melhorias:
+
+1- Mudança de biblioteca, a nova biblioteca por utilizar o SO alpine é mais leve e torna a imagem menor.
+
+2- Atualização dos repositórios, adicionando novos e corrigindo exploits.
+
+3- Adição de novo usuário para não utilizar o root.
+
+4- O flask funciona na porta 5000. Logo, a mesma deve estar exposta.
+
+5- Uso do servidor web Gunicorn, mais adequado a nivel de produção do que o servidor de desenvolvimento
+padrão do flask.

@@ -1,3 +1,5 @@
+Criar arquivo .env e configurar as variaveis de ambiente
+
 docker-compose up -d 
 
 docker exec -ti mysql bash

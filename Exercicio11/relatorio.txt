@@ -1,0 +1,58 @@
+Vulnerabilidades Encontradas
+
+---------------------------------------------------------------------------
+
+Vulnerabilidades Críticas (Critical)
+
+Vulnerabilidade (CVE)	Pacote Afetado	    Versão Instalada
+CVE-2023-6879	        libaom3	            3.6.0-1+deb12u1
+CVE-2023-5841	        libopenexr-dev	    3.1.5-5
+CVE-2025-49794	        libxml2	            2.9.14+dfsg-1.3~deb12u2
+CVE-2025-49796	        libxml2	            2.9.14+dfsg-1.3~deb12u2
+CVE-2025-6965	        {libsqlite3-0,      3.40.1-2+deb12u1
+                        libsqlite3-dev}	    
+
+---------------------------------------------------------------------------
+
+Vulnerabilidades Altas (High)
+
+Vulnerabilidade (CVE)	Pacote Afetado	       Versão Instalada
+CVE-2025-7345	        {gir1.2-gdkpixbuf-2.0, 2.42.10+dfsg-1+deb12u2
+                        libgdk-pixbuf-2.0-0, 
+                        etc.}	                
+CVE-2025-48384	        git, git-man	       1:2.39.5-0+deb12u2
+CVE-2025-48385	        git, git-man	       1:2.39.5-0+deb12u2
+CVE-2023-39616	        libaom3	               3.6.0-1+deb12u1
+CVE-2025-4802	        {libc-bin,             2.36-9+deb12u10
+                        libc-dev-bin, 
+                        libc6, libc6-dev}	   
+CVE-2023-44431	        {libbluetooth-dev,     5.66-1+deb12u2
+                        libbluetooth3}	
+CVE-2023-51596	        {libbluetooth-dev,     5.66-1+deb12u2
+                        libbluetooth3}
+CVE-2024-47691	        linux-libc-dev	       6.1.140-1
+CVE-2024-21803	        linux-libc-dev	       6.1.140-1
+CVE-2024-25742	        linux-libc-dev	       6.1.140-1
+CVE-2024-25743	        linux-libc-dev	       6.1.140-1
+CVE-2025-37833	        linux-libc-dev	       6.1.140-1
+CVE-2025-38062	        linux-libc-dev	       6.1.140-1
+CVE-2025-38064	        linux-libc-dev	       6.1.140-1
+CVE-2025-38065	        linux-libc-dev	       6.1.140-1
+CVE-2025-38161	        linux-libc-dev	       6.1.140-1
+CVE-2025-38181	        linux-libc-dev	       6.1.140-1
+CVE-2025-38328	        linux-libc-dev	       6.1.140-1
+CVE-2024-49928	        linux-libc-dev	       6.1.140-1
+
+---------------------------------------------------------------------------
+
+Soluções
+
+    A maioria dos pacotes e seus exploits pertencem ao sistema operacional utilizado pela imagem, ou seja,
+para aplicar as correções, em um Dockerfile ou executando o container, deve-se atualizar os repositórios com o 
+seguinte comando:
+
+    #!bin/bash
+    apt-get update -y && apt-get upgrade -y
+
+    A segunda prática, é utilizar sempre da versão mais recente da imagem (latest), pois muitos erros e exploits
+foram corrigidos. Consultar em: https://hub.docker.com/_/python 

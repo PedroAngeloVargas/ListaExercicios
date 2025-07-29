@@ -1,0 +1,4 @@
+Repositório original: https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+
+Melhorias, mudança no mapeamento de porta do backend afim de evitar conflito (Antes:3000 / Agora:3001),
+atualização da imagem mongo e adição da interface mongo-express ao docker-compose.
